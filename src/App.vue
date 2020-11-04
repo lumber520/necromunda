@@ -1,17 +1,13 @@
 <template>
-  <div id="nav">
-    <router-link :to="{ name: 'Home' }">
-      <img src="./assets/necromunda-logo.png" height="42" width="188" alt=""
-    /></router-link>
-    <router-link :to="{ name: 'Home' }">Home</router-link> |
-    <router-link :to="{ name: 'Report' }">Full Reports</router-link>
-    <router-link to="#gang">gangs</router-link>
-  </div>
-  <router-view />
+  <NavLinks />
+
+  <transition name="moveInUp">
+    <router-view />
+  </transition>
 </template>
 <script>
 import { ref } from "vue";
-
+import NavLinks from "./components/NavLinks";
 export default {
   name: "Home",
   setup() {
@@ -20,28 +16,31 @@ export default {
     const standings = ref("Current Standings");
     const mostWanted = ref("Most Wanted");
     return { gang, games, mostWanted, standings };
+  },
+  components: {
+    NavLinks
   }
 };
 </script>
-<style>
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Itim", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  h1 {
+    padding: 0.9rem 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2em;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  p {
+    font-size: 1.1rem;
+  }
 }
 </style>

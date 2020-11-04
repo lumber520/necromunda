@@ -1,16 +1,36 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import FullReport from "../views/FullReport";
+
 const routes = [
   {
-    path: "",
+    path: "/",
     name: "Home",
     component: Home
   },
   {
-    path: "/fullreport",
+    path: "/gangs",
+    name: "Gangs",
+    component: () =>
+      import(/*webpackChunkName:"Current-table" */ "../views/GangList")
+  },
+  {
+    path: "/games-played",
+    name: "GamesPlayed",
+    component: () =>
+      import(/*webpackChunkName:"Games-played" */ "../views/GamesPlayed")
+  },
+  {
+    path: "/most-wanted",
+    name: "MostWanted",
+    component: () =>
+      import(/*webpackChunkName:"Most-wanted" */ "../views/MostWanted")
+  },
+  {
+    path: "/report/:gameId",
     name: "Report",
-    component: FullReport
+    props: true,
+    component: () =>
+      import(/*webpackChunkName:"Most-wanted" */ "../views/FullReport")
   }
 ];
 

@@ -1,18 +1,20 @@
 <template>
   <div class="home">
     <Map />
-    <a id="/#gang">yrst</a>
+    <CurrentTable />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Map from "@/components/Map.vue";
+import CurrentTable from "@/components/Table.vue";
 
 export default {
   name: "Home",
   components: {
-    Map
+    Map,
+    CurrentTable
   }
 };
 </script>
+<style scoped></style>
