@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <div id="map" class="container-fluid">
     <div class="row justify-content-center">
-      <div class="fade-in">
+      <div class="fade-in ">
         <img
           @click="changeMap"
           :src="mapImage.image"
